@@ -1,33 +1,25 @@
-import ButtonGradient from "./assets/svg/ButtonGradient";
-import Benefits from "./components/Benefits";
-import Collaboration from "./components/Collaboration";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import Popup from "./components/Popup";
-import Pricing from "./components/Pricing";
-import Roadmap from "./components/Roadmap";
-import Services from "./components/Services";
-import ChatAgent from "./components/ChatAgent";
+import React from "react";
+import Navbar from "./constants/Navbar";
+import Hero from "./constants/Hero";
+import Sobre from "./constants/Sobre";
+import Services from "./constants/Servides";
+import Portfolio from "./constants/Portfolio";
+import Contato from "./constants/Contato";
+import Faq from "./constants/Faq";
+import Footer from "./constants/Footer";
 
 const App = () => {
   return (
-    <>
-      <div className="pt-[4.75rem] lg:pt-[5.25rem] overflow-hidden">
-        <Header />
+    <div className="min-h-screen text-white">
+        <Navbar />
         <Hero />
-        <ChatAgent />
-        <Benefits />
-        <Collaboration />
+        <Sobre />
         <Services />
-        <Popup />
-        <Pricing />
-        <Roadmap />
+        <Portfolio />
+        <Contato />
+        <Faq />
         <Footer />
-      </div>
-
-      <ButtonGradient />
-    </>
+    </div>
   );
 };
 
