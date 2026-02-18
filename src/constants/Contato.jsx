@@ -6,10 +6,9 @@ export default function Contato() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const obs = new IntersectionObserver(
-      ([entry]) => setVisible(entry.isIntersecting),
-      { threshold: 0.2 }
-    );
+    const obs = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting), {
+      threshold: 0.2,
+    });
 
     if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
@@ -25,42 +24,39 @@ export default function Contato() {
       <div className="absolute -top-40 -left-40 w-[400px] h-[400px] bg-yellow-500/10 blur-[120px] rounded-full pointer-events-none"></div>
 
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
-        
         {/* LADO ESQUERDO */}
         <div
           className={`transition-all duration-1000 ease-out ${
-            visible
-              ? "opacity-100 translate-x-0"
-              : "opacity-0 -translate-x-10"
+            visible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
           }`}
         >
           <p className="text-sm tracking-[4px] text-yellow-600 font-medium mb-4">
-            ENTRE EM CONTATO
+            FALE COM A ALLURE
           </p>
 
           <h2 className="text-4xl md:text-5xl font-semibold text-black leading-tight mb-6">
-            Agende sua avaliação <br /> com nossa equipe
+            Agende sua avaliação <br /> e receba um plano personalizado
           </h2>
 
           <p className="text-gray-600 mb-10 max-w-md">
-            Nossa equipe está pronta para oferecer o melhor atendimento,
-            com tecnologia avançada e um cuidado totalmente humanizado.
+            Aqui, saúde, beleza e bem-estar caminham juntos. Conte com uma equipe
+            preparada para te orientar com segurança e foco em resultados naturais.
           </p>
 
           <div className="space-y-6 text-black">
             <div className="flex items-center gap-4">
               <MapPin className="text-yellow-600" size={22} />
-              <span>Rua Exemplo, 123 - Centro</span>
+              <span>Endereço da clínica</span>
             </div>
 
             <div className="flex items-center gap-4">
               <Phone className="text-yellow-600" size={22} />
-              <span>(11) 99999-9999</span>
+              <span>WhatsApp / Telefone</span>
             </div>
 
             <div className="flex items-center gap-4">
               <Mail className="text-yellow-600" size={22} />
-              <span>contato@odontopremium.com</span>
+              <span>contato@allure.com.br</span>
             </div>
           </div>
         </div>
@@ -68,14 +64,11 @@ export default function Contato() {
         {/* LADO DIREITO - FORM */}
         <div
           className={`transition-all duration-1000 delay-200 ease-out ${
-            visible
-              ? "opacity-100 translate-x-0"
-              : "opacity-0 translate-x-10"
+            visible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
           }`}
         >
           <div className="bg-white shadow-2xl rounded-3xl p-10 border border-gray-100">
             <form className="space-y-6">
-              
               {/* Nome */}
               <div>
                 <label className="text-sm text-gray-600">Nome</label>
@@ -117,7 +110,7 @@ export default function Contato() {
                 <label className="text-sm text-gray-600">Mensagem</label>
                 <textarea
                   rows="4"
-                  placeholder="Como podemos ajudar você?"
+                  placeholder="Conte seu objetivo (facial, corporal ou capilar) e o melhor horário para contato."
                   className="w-full mt-2 px-4 py-3 rounded-xl 
                   border border-gray-200 
                   bg-white 
@@ -143,8 +136,13 @@ export default function Contato() {
                   active:scale-[0.98]
                 "
               >
-                Agendar Avaliação
+                Solicitar Avaliação
               </button>
+
+              <p className="text-xs text-gray-500 leading-relaxed">
+                Ao enviar, você autoriza nosso contato para confirmar seu atendimento e
+                orientar os próximos passos.
+              </p>
             </form>
           </div>
         </div>

@@ -21,75 +21,93 @@ export default function Portfolio() {
     return () => obs.disconnect();
   }, []);
 
+  // ✅ tags da Allure (mantive enxuto)
   const tags = useMemo(
-    () => ["Todos", "Canal", "Extração", "Facetas", "Clareamento"],
+    () => ["Todos", "Facial", "Preenchimento", "Toxina", "Corporal"],
     []
   );
 
-  // ✅ troca pelas suas imagens reais depois (public/portfolio/...)
+  // ✅ Coloque suas fotos reais depois:
+  // imgBefore / imgAfter (pode ser do /public/portfolio/...)
   const items = useMemo(
     () => [
       {
         id: "p1",
-        tag: "Facetas",
-        title: "Facetas em resina",
-        desc: "Harmonia do sorriso com naturalidade.",
-        img: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=1400&auto=format&fit=crop",
+        tag: "Toxina",
+        title: "Toxina Botulínica (Dysport®)",
+        desc: "Suaviza linhas com naturalidade.",
         badge: "ANTES / DEPOIS",
+        imgBefore:
+          "https://versatilis.com.br/wp-content/uploads/2023/10/equipamentos-para-clinica-de-estetica-2048x1365.jpg",
+        imgAfter:
+          "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?q=80&w=1400&auto=format&fit=crop",
         detail:
-          "Planejamento digital + acabamento premium. Resultado natural respeitando formato do rosto e linha do sorriso.",
+          "Aplicação com foco em prevenção e suavização, respeitando proporções e expressões naturais. Avaliação e pontos personalizados.",
       },
       {
         id: "p2",
-        tag: "Clareamento",
-        title: "Clareamento dental",
-        desc: "Iluminação do sorriso com conforto.",
-        img: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1400&auto=format&fit=crop",
+        tag: "Preenchimento",
+        title: "Preenchimento (Juvederm®)",
+        desc: "Contorno e hidratação profunda.",
         badge: "RESULTADO",
+        imgBefore:
+          "https://images.unsplash.com/photo-1540555700478-4be289fbecef?q=80&w=1400&auto=format&fit=crop",
+        imgAfter:
+          "https://images.unsplash.com/photo-1520473378652-85d9c4aee6cf?q=80&w=1400&auto=format&fit=crop",
         detail:
-          "Protocolo seguro e personalizado. Acompanhamento e orientação para manter o resultado por mais tempo.",
+          "Ácido hialurônico para contorno, hidratação e sustentação — com técnica precisa e acabamento discreto.",
       },
       {
         id: "p3",
-        tag: "Canal",
-        title: "Tratamento de canal",
-        desc: "Alívio da dor e preservação do dente.",
-        img: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1400&auto=format&fit=crop",
-        badge: "BÁSICO",
+        tag: "Facial",
+        title: "Microagulhamento",
+        desc: "Textura, viço e uniformidade.",
+        badge: "PELE",
+        imgBefore:
+          "https://images.unsplash.com/photo-1526045478516-99145907023c?q=80&w=1400&auto=format&fit=crop",
+        imgAfter:
+          "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=1400&auto=format&fit=crop",
         detail:
-          "Diagnóstico preciso e execução confortável. Foco em preservar estrutura e devolver função.",
+          "Estimula renovação e melhora textura com protocolo seguro. Indicado para marcas, poros e luminosidade.",
       },
       {
         id: "p4",
-        tag: "Extração",
-        title: "Extração segura",
-        desc: "Procedimento planejado e humanizado.",
-        img: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=1400&auto=format&fit=crop",
-        badge: "CIRÚRGICO",
+        tag: "Facial",
+        title: "Peelings + Revitalização",
+        desc: "Pele mais lisa e iluminada.",
+        badge: "GLOW",
+        imgBefore:
+          "https://images.unsplash.com/photo-1522338140262-f46f5913618a?q=80&w=1400&auto=format&fit=crop",
+        imgAfter:
+          "https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=1400&auto=format&fit=crop",
         detail:
-          "Conduta conservadora e transparente. Pós-operatório acompanhado com orientações claras.",
+          "Sessões combinadas para uniformizar tom, melhorar textura e devolver viço — sempre respeitando a sensibilidade da pele.",
       },
-
-      // ✅ as 2 últimas estavam falhando: troquei os links aqui
       {
         id: "p5",
-        tag: "Facetas",
-        title: "Reabilitação estética",
-        desc: "Forma e proporção sob medida.",
-        img: "https://images.unsplash.com/photo-1598256989800-fe5f95da9787?q=80&w=1400&auto=format&fit=crop",
-        badge: "PREMIUM",
+        tag: "Corporal",
+        title: "Redução de Gordura Localizada",
+        desc: "Contorno com protocolo personalizado.",
+        badge: "CORPO",
+        imgBefore:
+          "https://images.unsplash.com/photo-1556228578-8c89e6adf883?q=80&w=1400&auto=format&fit=crop",
+        imgAfter:
+          "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=1400&auto=format&fit=crop",
         detail:
-          "Reabilitação com foco em harmonia: proporção, brilho e textura alinhados ao natural.",
+          "Enzimas e protocolos corporais para contorno e melhora da aparência da pele. Indicação e avaliação individual.",
       },
       {
         id: "p6",
-        tag: "Clareamento",
-        title: "Clareamento + polimento",
-        desc: "Detalhe que faz diferença.",
-        img: "https://images.unsplash.com/photo-1606811971618-4486d14f3f99?q=80&w=1400&auto=format&fit=crop",
-        badge: "ESTÉTICA",
+        tag: "Facial",
+        title: "Skinbooster",
+        desc: "Hidratação e glow natural.",
+        badge: "HIDRATAÇÃO",
+        imgBefore:
+          "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1400&auto=format&fit=crop",
+        imgAfter:
+          "https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=1400&auto=format&fit=crop",
         detail:
-          "Finalização com polimento e orientação de manutenção. Resultado mais uniforme e “limpo”.",
+          "Hidratação profunda para melhorar luminosidade e textura, com resultado refinado e natural.",
       },
     ],
     []
@@ -123,7 +141,6 @@ export default function Portfolio() {
     };
 
     document.addEventListener("keydown", onKey);
-    // trava scroll do body
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
 
@@ -161,21 +178,21 @@ export default function Portfolio() {
             <div>
               <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/30 px-3 py-1.5 text-[10px] tracking-[0.22em] text-white/70">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#d4af37] shadow-[0_0_14px_rgba(212,175,55,0.55)]" />
-                PORTFÓLIO
+                RESULTADOS
               </div>
 
               <h2 className="mt-4 text-[34px] leading-[1.02] tracking-tight sm:text-[42px] md:text-[52px]">
                 <span className="block font-[520] text-white/95">
-                  Resultados que
+                  Antes & Depois
                 </span>
                 <span className="block font-[520] text-white/95">
-                  falam por si.
+                  com naturalidade.
                 </span>
               </h2>
 
-              <p className="mt-4 max-w-[52ch] text-[13px] leading-relaxed text-white/70 sm:text-sm">
-                Antes e depois, estética e tratamentos essenciais — tudo com
-                tecnologia, conforto e acabamento premium.
+              <p className="mt-4 max-w-[56ch] text-[13px] leading-relaxed text-white/70 sm:text-sm">
+                Casos reais de protocolos faciais e corporais — com foco em
+                harmonia, segurança e acabamento premium.
               </p>
             </div>
 
@@ -193,9 +210,7 @@ export default function Portfolio() {
                       activeTag
                         ? "border-[#d4af37]/40 bg-white/[0.04] text-white"
                         : "border-white/10 bg-white/[0.02] text-white/75 hover:border-[#d4af37]/30 hover:text-white",
-                      show
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-2",
+                      show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2",
                     ].join(" ")}
                     style={{ transitionDelay: `${120 + idx * 40}ms` }}
                   >
@@ -230,17 +245,30 @@ export default function Portfolio() {
               >
                 <div className="absolute -inset-px rounded-[26px] opacity-0 transition-opacity duration-300 group-hover:opacity-70 [background:linear-gradient(135deg,rgba(255,255,255,0.06),transparent_35%,rgba(212,175,55,0.12))]" />
 
-                {/* imagem */}
+                {/* imagem (ANTES / DEPOIS no hover) */}
                 <div className="relative h-[210px] w-full overflow-hidden">
+                  {/* BEFORE */}
                   <img
-                    src={it.img}
-                    alt={it.title}
-                    className="h-full w-full object-cover opacity-95 transition-transform duration-[900ms] ease-out group-hover:scale-[1.06]"
+                    src={it.imgBefore}
+                    alt={`${it.title} - Antes`}
+                    className="absolute inset-0 h-full w-full object-cover opacity-95 transition-all duration-[650ms] ease-out group-hover:opacity-0 group-hover:scale-[1.03]"
                     loading="lazy"
                     onError={(e) => {
                       e.currentTarget.style.display = "none";
                     }}
                   />
+                  {/* AFTER */}
+                  <img
+                    src={it.imgAfter}
+                    alt={`${it.title} - Depois`}
+                    className="absolute inset-0 h-full w-full object-cover opacity-0 transition-all duration-[650ms] ease-out group-hover:opacity-100 group-hover:scale-[1.06]"
+                    loading="lazy"
+                    onError={(e) => {
+                      // se der erro no after, volta pra before
+                      e.currentTarget.style.display = "none";
+                    }}
+                  />
+
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/15 to-black/5" />
                   <div className="absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100 [background:radial-gradient(520px_220px_at_50%_10%,rgba(212,175,55,0.14),transparent_60%)]" />
 
@@ -251,6 +279,11 @@ export default function Portfolio() {
                     <span className="rounded-full border border-[#d4af37]/30 bg-black/35 px-3 py-1 text-[10px] tracking-[0.22em] text-white/80 backdrop-blur-xl">
                       {it.badge}
                     </span>
+                  </div>
+
+                  {/* hint (só desktop) */}
+                  <div className="pointer-events-none absolute bottom-3 right-3 hidden sm:inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/35 px-3 py-1 text-[10px] tracking-[0.18em] text-white/70 backdrop-blur-xl">
+                    PASSE O MOUSE ↔
                   </div>
                 </div>
 
@@ -267,14 +300,14 @@ export default function Portfolio() {
                     <div className="flex items-center gap-2">
                       <span className="h-9 w-9 rounded-full border border-white/12 bg-white/[0.03] shadow-[0_0_0_1px_rgba(255,255,255,0.05)_inset]" />
                       <div className="leading-tight">
-                        <p className="text-xs text-white/80">Odonto Premium</p>
+                        <p className="text-xs text-white/80">Allure</p>
                         <p className="text-[11px] text-white/50">
-                          Todas as especialidades
+                          Estética Avançada
                         </p>
                       </div>
                     </div>
 
-                    {/* ✅ abre pop-up */}
+                    {/* abre pop-up */}
                     <button
                       type="button"
                       onClick={() => openModalByItem(it.id)}
@@ -307,11 +340,10 @@ export default function Portfolio() {
             <div className="relative flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
               <div>
                 <p className="text-sm font-[560] text-white/92">
-                  Quer ver casos reais do seu tipo de tratamento?
+                  Quer ver casos reais parecidos com o seu objetivo?
                 </p>
                 <p className="mt-1 text-[12.5px] leading-relaxed text-white/70">
-                  Envie uma mensagem e te mostramos exemplos parecidos com o seu
-                  objetivo.
+                  Fale com a gente e te mostramos exemplos de protocolos que combinam com você.
                 </p>
               </div>
 
@@ -417,15 +449,22 @@ export default function Portfolio() {
 
             {/* body modal */}
             <div className="relative grid grid-cols-1 gap-0 md:grid-cols-2">
-              {/* imagem grande */}
-              <div className="relative h-[260px] w-full md:h-[420px]">
-                {active?.img ? (
-                  <img
-                    key={active?.img} // força refresh quando troca item
-                    src={active.img}
-                    alt={active.title}
-                    className="h-full w-full object-cover"
-                  />
+              {/* imagem grande (AFTER por padrão, com toggle no hover no desktop) */}
+              <div className="relative h-[260px] w-full md:h-[420px] overflow-hidden">
+                {active?.imgAfter ? (
+                  <>
+                    <img
+                      key={active?.imgAfter}
+                      src={active.imgAfter}
+                      alt={`${active.title} - Depois`}
+                      className="absolute inset-0 h-full w-full object-cover opacity-100 transition-opacity duration-300 md:hover:opacity-0"
+                    />
+                    <img
+                      src={active.imgBefore}
+                      alt={`${active.title} - Antes`}
+                      className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 md:hover:opacity-100"
+                    />
+                  </>
                 ) : null}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10" />
               </div>
@@ -448,7 +487,7 @@ export default function Portfolio() {
                         PROCESSO
                       </p>
                       <p className="mt-2 text-sm text-white/80">
-                        Avaliação • Planejamento • Execução
+                        Avaliação • Plano • Execução
                       </p>
                     </div>
                     <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-4 backdrop-blur-xl">
@@ -456,7 +495,7 @@ export default function Portfolio() {
                         DIFERENCIAL
                       </p>
                       <p className="mt-2 text-sm text-white/80">
-                        Tecnologia • Conforto • Acabamento
+                        Segurança • Naturalidade • Acabamento
                       </p>
                     </div>
                   </div>

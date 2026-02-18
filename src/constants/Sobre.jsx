@@ -26,7 +26,11 @@ function Reveal({ children, delay = 0 }) {
       style={{ transitionDelay: `${delay}ms` }}
       className={`
         transition-all duration-1000 ease-[cubic-bezier(.16,1,.3,1)]
-        ${visible ? "opacity-100 translate-y-0 blur-0" : "opacity-0 translate-y-10 blur-[6px]"}
+        ${
+          visible
+            ? "opacity-100 translate-y-0 blur-0"
+            : "opacity-0 translate-y-10 blur-[6px]"
+        }
       `}
     >
       {children}
@@ -91,7 +95,7 @@ function InfoChip({ title, desc }) {
 }
 
 /* ============================= */
-/* SOBRE SECTION */
+/* SOBRE SECTION (ALLURE) */
 /* ============================= */
 export default function Sobre() {
   return (
@@ -105,7 +109,7 @@ export default function Sobre() {
           <div className="flex items-center gap-3">
             <span className="h-px w-12 bg-[#d4af37]" />
             <p className="uppercase tracking-[0.45em] text-xs text-black/60">
-              Sobre a Premium
+              Sobre a Allure
             </p>
           </div>
         </Reveal>
@@ -115,9 +119,9 @@ export default function Sobre() {
           <div className="lg:col-span-7">
             <Reveal delay={100}>
               <h2 className="text-4xl md:text-5xl font-light leading-tight text-black">
-                Autoridade em odontologia há{" "}
+                Estética avançada há{" "}
                 <span className="relative font-medium">
-                  10+ anos
+                  2 anos
                   <span className="absolute -bottom-2 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#d4af37] to-transparent" />
                 </span>
               </h2>
@@ -125,29 +129,29 @@ export default function Sobre() {
 
             <Reveal delay={200}>
               <p className="mt-8 text-lg text-black/70 leading-relaxed max-w-2xl">
-                Somos uma clínica odontológica completa, com todas as especialidades — do
-                tratamento básico à estética avançada — sempre com ética, transparência e
-                atendimento humanizado.
+                Somos uma clínica de estética avançada que une saúde, beleza e bem-estar.
+                Nossos protocolos faciais e corporais são focados em resultados naturais,
+                segurança e autoestima — com um cuidado totalmente personalizado.
               </p>
             </Reveal>
 
             <Reveal delay={300}>
               <div className="mt-12 grid sm:grid-cols-2 gap-6">
                 <InfoChip
-                  title="Tratamentos básicos"
-                  desc="Canal, extração e reabilitação com segurança e conforto."
+                  title="Faciais completos"
+                  desc="Limpeza de pele, peelings, microagulhamento e revitalizações com foco em qualidade e naturalidade."
                 />
                 <InfoChip
-                  title="Estética premium"
-                  desc="Facetas e clareamento com planejamento e alto padrão."
+                  title="Injetáveis premium"
+                  desc="Toxina botulínica (Dysport®), preenchimentos (Juvederm®), skinbooster e rinomodelação."
                 />
                 <InfoChip
-                  title="Tecnologia avançada"
-                  desc="Equipamentos modernos para precisão e bem-estar."
+                  title="Colágeno & firmeza"
+                  desc="Bioestimuladores (Sculptra®, Radiesse®, Ellansé®) para flacidez, textura e sustentação ao longo do tempo."
                 />
                 <InfoChip
-                  title="Transparência total"
-                  desc="Você entende cada etapa antes de qualquer decisão."
+                  title="Corporal & capilar"
+                  desc="Enzimas para gordura localizada, protocolos corporais e tratamentos capilares para força e crescimento."
                 />
               </div>
             </Reveal>
@@ -158,9 +162,9 @@ export default function Sobre() {
                   Nossa missão
                 </p>
                 <p className="mt-4 text-lg text-black/75 leading-relaxed">
-                  Promover saúde bucal para nossos pacientes de forma ética, humanizada e
-                  acessível, utilizando tecnologia para oferecer conforto e resultados
-                  consistentes.
+                  Entregar resultados naturais com segurança e excelência, elevando
+                  a autoestima de cada paciente por meio de planos personalizados,
+                  tecnologia e acompanhamento cuidadoso.
                 </p>
               </div>
             </Reveal>
@@ -184,33 +188,34 @@ export default function Sobre() {
 
                 <div className="relative p-10 sm:p-12">
                   <p className="text-[11px] tracking-[0.45em] uppercase text-white/50">
-                    Por que escolher a Premium
+                    Por que escolher a Allure
                   </p>
 
                   <h3 className="mt-5 text-3xl font-light leading-snug">
-                    Uma experiência{" "}
-                    <span className="text-[#d4af37] font-medium">premium</span>, do primeiro
-                    contato ao resultado final.
+                    Uma estética{" "}
+                    <span className="text-[#d4af37] font-medium">sofisticada</span>, com
+                    resultados naturais e cuidado de verdade.
                   </h3>
 
                   <div className="mt-10 space-y-5">
-                    <Bullet>Equipe experiente e atendimento cuidadoso</Bullet>
-                    <Bullet>Planejamento detalhado e previsível</Bullet>
-                    <Bullet>Ambiente confortável e tecnologia moderna</Bullet>
-                    <Bullet>Foco em estética + função, sem exageros</Bullet>
+                    <Bullet>Avaliação detalhada e plano personalizado</Bullet>
+                    <Bullet>Foco em harmonia facial e corporal, sem exageros</Bullet>
+                    <Bullet>Protocolos seguros e acompanhamento pós</Bullet>
+                    <Bullet>Tecnologia e técnicas atualizadas</Bullet>
                   </div>
 
-                  {/* ✅ MOBILE: espaçamento melhor + label não estoura + último item trocado */}
+                  {/* stats */}
                   <div className="mt-12 grid grid-cols-3 gap-3 sm:gap-4">
-                    <MiniStat number="10+" label="Anos" />
-                    <MiniStat number="100%" label="Ética" />
-                    <MiniStat number="12+" label="Áreas" />
+                    <MiniStat number="2+" label="Anos" />
+                    <MiniStat number="100%" label="Natural" />
+                    <MiniStat number="20+" label="Proced." />
                   </div>
 
                   <div className="mt-10 h-px bg-white/10" />
 
                   <p className="mt-6 text-white/65 leading-relaxed">
-                    Aqui, cada sorriso é tratado com respeito, técnica e acabamento de alto padrão.
+                    Aqui, cada detalhe é pensado para valorizar sua beleza com segurança,
+                    técnica e um acabamento premium.
                   </p>
                 </div>
               </div>

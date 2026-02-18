@@ -9,10 +9,9 @@ export default function Footer() {
 
   // ✅ animação ao aparecer
   useEffect(() => {
-    const obs = new IntersectionObserver(
-      ([entry]) => setShow(entry.isIntersecting),
-      { threshold: 0.2 }
-    );
+    const obs = new IntersectionObserver(([entry]) => setShow(entry.isIntersecting), {
+      threshold: 0.2,
+    });
 
     if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
@@ -107,14 +106,14 @@ export default function Footer() {
       >
         {/* LOGO */}
         <div>
-          <img src="/logo.svg" alt="Premium Odontologia" className="w-40 mb-6" />
+          <img src="/logo.svg" alt="Allure Estética Avançada" className="w-40 mb-6" />
           <p className="text-gray-400 leading-relaxed text-sm">
-            Há mais de 10 anos promovendo saúde bucal com ética, tecnologia avançada
-            e atendimento humanizado.
+            Estética avançada que une saúde, beleza e bem-estar. Protocolos faciais e
+            corporais com foco em resultados naturais, segurança e autoestima.
           </p>
         </div>
 
-        {/* NAVEGAÇÃO (AGORA COM SCROLL PREMIUM DO NAVBAR) */}
+        {/* NAVEGAÇÃO */}
         <div>
           <h3 className="text-yellow-500 font-semibold mb-4 tracking-wider">
             Navegação
@@ -153,7 +152,7 @@ export default function Footer() {
 
             <li className="flex items-center gap-3 hover:text-yellow-500 transition">
               <Mail size={16} />
-              contato@premium.com
+              contato@allure.com.br
             </li>
           </ul>
         </div>
@@ -170,6 +169,7 @@ export default function Footer() {
               target="_blank"
               rel="noreferrer"
               className="w-11 h-11 flex items-center justify-center border border-yellow-500/30 rounded-full transition-all duration-500 hover:bg-yellow-500 hover:text-black hover:scale-110"
+              aria-label="Instagram"
             >
               <Instagram size={18} />
             </a>
@@ -179,6 +179,7 @@ export default function Footer() {
               target="_blank"
               rel="noreferrer"
               className="w-11 h-11 flex items-center justify-center border border-yellow-500/30 rounded-full transition-all duration-500 hover:bg-yellow-500 hover:text-black hover:scale-110"
+              aria-label="WhatsApp"
             >
               <MessageCircle size={18} />
             </a>
@@ -188,7 +189,7 @@ export default function Footer() {
 
       {/* Linha final */}
       <div className="border-t border-white/10 mt-14 pt-6 text-center text-gray-500 text-sm">
-        © {new Date().getFullYear()} Premium Odontologia — Todos os direitos reservados.
+        © {new Date().getFullYear()} Allure Estética Avançada — Todos os direitos reservados.
       </div>
     </footer>
   );

@@ -54,8 +54,7 @@ export default function Navbar() {
     if (!el) return;
 
     const NAV_OFFSET = 96;
-    const top =
-      el.getBoundingClientRect().top + window.pageYOffset - NAV_OFFSET;
+    const top = el.getBoundingClientRect().top + window.pageYOffset - NAV_OFFSET;
 
     setOpen(false);
     setTimeout(() => smoothScrollTo(top, 760), 60);
@@ -71,7 +70,6 @@ export default function Navbar() {
           position: relative;
           display: inline-block;
         }
-
         .center-underline::after {
           content: "";
           position: absolute;
@@ -89,7 +87,6 @@ export default function Navbar() {
           transform-origin: center;
           transition: transform 0.35s ease;
         }
-
         .center-underline:hover::after {
           transform: translateX(-50%) scaleX(1);
         }
@@ -112,33 +109,21 @@ export default function Navbar() {
           }`}
         >
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
-
             {/* ✅ MOBILE = 2 COLUNAS | DESKTOP = 3 COLUNAS */}
             <div className="grid h-[76px] sm:h-[88px] items-center grid-cols-[1fr_auto] lg:grid-cols-[1fr_auto_1fr]">
-
-              {/* Logo */}
+              {/* ✅ LOGO (só o svg, sem caixa e sem texto) */}
               <div className="justify-self-start">
                 <button
                   onClick={() => scrollToId("home")}
-                  className="flex items-center gap-3"
+                  className="flex items-center"
+                  aria-label="Ir para o início"
                 >
-                  <div className="flex items-center justify-center w-11 h-11 rounded-2xl bg-black/40 border border-yellow-500/20">
-                    <img
-                      src="/logo.svg"
-                      alt="Premium Clínica Odontológica"
-                      className="w-8 h-8 object-contain"
-                    />
-                  </div>
-
-                  {/* Texto some no mobile */}
-                  <div className="hidden sm:block text-left leading-tight">
-                    <div className="text-white font-semibold tracking-wide">
-                      Premium
-                    </div>
-                    <div className="text-[11px] text-yellow-500/90 tracking-[0.22em] uppercase">
-                      Clínica Odontológica
-                    </div>
-                  </div>
+                  <img
+                    src="/logo.svg"
+                    alt="Logo"
+                    className="h-8 sm:h-9 w-auto object-contain"
+                    draggable={false}
+                  />
                 </button>
               </div>
 
@@ -171,16 +156,16 @@ export default function Navbar() {
                 </button>
               </div>
 
-              {/* Botão Mobile (fica na direita agora) */}
+              {/* Botão Mobile */}
               <div className="lg:hidden justify-self-end">
                 <button
                   className="inline-flex items-center justify-center w-11 h-11 rounded-2xl border border-yellow-500/20 bg-black/40 text-white"
                   onClick={() => setOpen((s) => !s)}
+                  aria-label={open ? "Fechar menu" : "Abrir menu"}
                 >
                   {open ? <X size={22} /> : <Menu size={22} />}
                 </button>
               </div>
-
             </div>
           </div>
 

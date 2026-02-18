@@ -19,9 +19,7 @@ function Reveal({ children, delay = 0 }) {
       ref={ref}
       style={{ transitionDelay: `${delay}ms` }}
       className={`transition-all duration-700 ease-out ${
-        show
-          ? "opacity-100 translate-y-0"
-          : "opacity-0 translate-y-12"
+        show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
       }`}
     >
       {children}
@@ -30,34 +28,32 @@ function Reveal({ children, delay = 0 }) {
 }
 
 export default function Services() {
+  // ✅ Textos ajustados para ALLURE Estética Avançada
   const services = [
     {
       icon: <ShieldCheck size={28} />,
-      title: "Tratamentos Clínicos",
-      desc: "Canal, extrações, restaurações e cuidados preventivos realizados com tecnologia avançada e total conforto.",
-    },
-    {
-      icon: <Smile size={28} />,
-      title: "Ortodontia",
-      desc: "Aparelhos modernos e discretos para alinhar seu sorriso com segurança e eficiência.",
+      title: "Injetáveis Premium",
+      desc: "Toxina botulínica (Dysport®) e preenchimentos com ácido hialurônico (Juvederm®) para suavizar linhas, contornar e hidratar com naturalidade.",
     },
     {
       icon: <Sparkles size={28} />,
-      title: "Clareamento Dental",
-      desc: "Procedimentos seguros para devolver o brilho natural e elevar sua autoestima.",
+      title: "Bioestimuladores de Colágeno",
+      desc: "Sculptra®, Radiesse® e Ellansé® para estimular colágeno, melhorar firmeza, flacidez e qualidade da pele de forma progressiva.",
+    },
+    {
+      icon: <Smile size={28} />,
+      title: "Procedimentos Faciais",
+      desc: "Limpeza de pele, microagulhamento, peelings e revitalizações para textura, viço e uniformidade — com protocolos seguros e personalizados.",
     },
     {
       icon: <Gem size={28} />,
-      title: "Facetas e Estética",
-      desc: "Transformações completas com facetas em porcelana e lentes de contato dental de alto padrão.",
+      title: "Corporal & Capilar",
+      desc: "Enzimas para redução de gordura localizada e protocolos corporais, além de tratamentos capilares para fortalecimento, crescimento e redução da queda.",
     },
   ];
 
   return (
-    <section
-      id="servicos"
-      className="relative bg-white py-28 overflow-hidden"
-    >
+    <section id="servicos" className="relative bg-white py-28 overflow-hidden">
       {/* detalhe dourado topo */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[2px] h-24 bg-gradient-to-b from-[#D4AF37] to-transparent" />
 
@@ -66,10 +62,10 @@ export default function Services() {
         <Reveal>
           <div className="text-center mb-20">
             <p className="text-[#D4AF37] tracking-[0.3em] text-sm mb-4">
-              NOSSAS ESPECIALIDADES
+              NOSSOS PROCEDIMENTOS
             </p>
             <h2 className="text-5xl font-light text-black mb-6">
-              Excelência em cada detalhe
+              Resultados naturais, com segurança
             </h2>
             <div className="w-24 h-[2px] bg-[#D4AF37] mx-auto" />
           </div>
@@ -80,7 +76,6 @@ export default function Services() {
           {services.map((service, index) => (
             <Reveal key={index} delay={index * 150}>
               <div className="group relative p-10 border-2 border-neutral-300 rounded-2xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-3">
-                
                 {/* Glow dourado animado */}
                 <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-r from-[#D4AF37]/10 via-transparent to-[#D4AF37]/10 blur-2xl" />
 
