@@ -44,6 +44,7 @@ export default function PortfolioCarousel() {
   const [isDragging, setIsDragging] = useState(false);
   const [dragX, setDragX] = useState(0);
   const trackRef = useRef(null);
+  const videoRef = useRef(null);
   const dragStart = useRef(null);
   const autoPlayRef = useRef(null);
 
@@ -198,10 +199,11 @@ export default function PortfolioCarousel() {
   };
 
   /* ── Modal ── */
+  const pauseVideo = () => { if (videoRef.current) { videoRef.current.pause(); videoRef.current.currentTime = 0; } };
   const openModal = (idx) => { setActiveIndex(idx); setOpen(true); pauseAutoPlay(); };
-  const closeModal = () => { setOpen(false); resumeAutoPlay(); };
-  const prevModal = () => setActiveIndex((i) => (i - 1 + items.length) % items.length);
-  const nextModal = () => setActiveIndex((i) => (i + 1) % items.length);
+  const closeModal = () => { pauseVideo(); setOpen(false); resumeAutoPlay(); };
+  const prevModal = () => { pauseVideo(); setActiveIndex((i) => (i - 1 + items.length) % items.length); };
+  const nextModal = () => { pauseVideo(); setActiveIndex((i) => (i + 1) % items.length); };
 
   useEffect(() => {
     if (!open) return;
@@ -514,6 +516,7 @@ export default function PortfolioCarousel() {
               <div className="flex items-center justify-center bg-zinc-900 p-3 md:p-0">
                 <div className="w-full aspect-[9/16] max-h-[50svh] md:max-h-none rounded-xl md:rounded-none overflow-hidden border border-white/[0.06] md:border-0">
                   <video
+                    ref={videoRef}
                     key={open ? `open-${activeIndex}` : "closed"}
                     src={active?.video}
                     controls
