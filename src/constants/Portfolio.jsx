@@ -50,7 +50,7 @@ export default function PortfolioCarousel() {
   const items = useMemo(() => {
     const data = [
       {
-        video: "armonizacaofacial", title: "Harmonização Facial",
+        video: "armonizacao-facial", title: "Harmonização Facial",
         desc: "A harmonização facial é um conjunto de procedimentos estéticos que busca equilibrar as proporções do rosto, realçando a beleza natural de cada paciente. Utilizamos técnicas como preenchimento com ácido hialurônico, bioestimuladores e toxina botulínica para criar um resultado harmonioso, natural e personalizado.",
       },
       {
@@ -66,7 +66,7 @@ export default function PortfolioCarousel() {
         desc: "Os fios de PDO promovem um lifting facial sem cirurgia, reposicionando os tecidos e estimulando a produção de colágeno. O procedimento é minimamente invasivo, com recuperação rápida, e oferece um efeito tensor imediato que continua melhorando ao longo dos meses.",
       },
       {
-        video: "gluteo", title: "Glúteo",
+        video: "armonizacao-de-gluteo", title: "Glúteo",
         desc: "O tratamento estético para glúteos utiliza bioestimuladores e preenchimentos para melhorar o contorno, volume e firmeza da região. É uma alternativa segura e eficaz à cirurgia, com resultados naturais que valorizam as curvas e a silhueta de forma harmoniosa.",
       },
       {
