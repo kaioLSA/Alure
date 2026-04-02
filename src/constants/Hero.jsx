@@ -1,17 +1,19 @@
 import React, { useEffect, useRef, useState, useCallback } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
+const BASE = import.meta.env.BASE_URL;
+
 const SLIDES = [
   {
-    image: "/banner-1.jpg",
+    image: `${BASE}banner-1.jpg`,
     alt: "Allure Estética Avançada — Resultados naturais há mais de 9 anos",
   },
   {
-    image: "/banner-2.jpg",
+    image: `${BASE}banner-2.jpg`,
     alt: "Injetáveis premium e bioestimuladores de colágeno",
   },
   {
-    image: "/banner-3.jpg",
+    image: `${BASE}banner-3.jpg`,
     alt: "Harmonização facial e procedimentos personalizados",
   },
 ];

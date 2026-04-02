@@ -2,6 +2,8 @@
 
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
+const BASE = import.meta.env.BASE_URL;
+
 /* ─── Reveal (once) ─── */
 function Reveal({ children, delay = 0, className = "" }) {
   const ref = useRef(null);
@@ -83,8 +85,8 @@ export default function PortfolioCarousel() {
         title: data[n].title,
         subtitle: "Antes & Depois",
         desc: data[n].desc,
-        img: `/${n + 6}.jpg`,
-        video: `/video/${data[n].video}.MOV`,
+        img: `${BASE}${n + 6}.jpg`,
+        video: `${BASE}video/${data[n].video}.mp4`,
       });
     }
     return arr;

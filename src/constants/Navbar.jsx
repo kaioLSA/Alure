@@ -1,6 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Menu, X, ArrowRight } from "lucide-react";
 
+const BASE = import.meta.env.BASE_URL;
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -120,7 +122,7 @@ export default function Navbar() {
                   aria-label="Ir para o início"
                 >
                   <img
-                    src="/logo.svg"
+                    src={`${BASE}logo.svg`}
                     alt="Logo"
                     className={`h-8 sm:h-9 w-auto object-contain transition-all duration-500 ${pastHero ? "brightness-0 invert" : ""}`}
                     draggable={false}

@@ -1,6 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Instagram, MapPin, Phone, Mail, MessageCircle } from "lucide-react";
 
+const BASE = import.meta.env.BASE_URL;
+
 export default function Footer() {
   const ref = useRef(null);
   const rafRef = useRef(null);
@@ -106,7 +108,7 @@ export default function Footer() {
       >
         {/* LOGO */}
         <div>
-          <img src="/logo.svg" alt="Allure Estética Avançada" className="w-40 mb-6" />
+          <img src={`${BASE}logo.svg`} alt="Allure Estética Avançada" className="w-40 mb-6" />
           <p className="text-gray-400 leading-relaxed text-sm">
             Há mais de 9 anos transformando autoestima com responsabilidade.
             Atendimento acolhedor, resultados naturais e acompanhamento do início
