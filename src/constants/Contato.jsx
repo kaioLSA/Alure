@@ -18,12 +18,12 @@ export default function Contato() {
     <section
       id="contato"
       ref={ref}
-      className="relative w-full py-28 bg-[#f8f6f1] overflow-hidden"
+      className="relative w-full py-16 md:py-20 bg-[#f8f6f1] overflow-hidden"
     >
       {/* Glow dourado suave */}
       <div className="absolute -top-40 -left-40 w-[400px] h-[400px] bg-yellow-500/10 blur-[120px] rounded-full pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
+      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
         {/* LADO ESQUERDO */}
         <div
           className={`transition-all duration-1000 ease-out ${
@@ -34,13 +34,14 @@ export default function Contato() {
             FALE COM A ALLURE
           </p>
 
-          <h2 className="text-4xl md:text-5xl font-semibold text-black leading-tight mb-6">
-            Agende sua avaliação <br /> e receba um plano personalizado
+          <h2 className="text-3xl md:text-4xl font-semibold text-black leading-tight mb-4">
+            Agende sua avaliação <br /> personalizada
           </h2>
 
           <p className="text-gray-600 mb-10 max-w-md">
-            Aqui, saúde, beleza e bem-estar caminham juntos. Conte com uma equipe
-            preparada para te orientar com segurança e foco em resultados naturais.
+            Aqui você encontra acolhimento, orientação clara e um plano feito
+            sob medida para seus objetivos. Mais de 9 anos cuidando da autoestima
+            de quem nos escolhe — com segurança e resultados naturais.
           </p>
 
           <div className="space-y-6 text-black">
@@ -110,7 +111,7 @@ export default function Contato() {
                 <label className="text-sm text-gray-600">Mensagem</label>
                 <textarea
                   rows="4"
-                  placeholder="Conte seu objetivo (facial, corporal ou capilar) e o melhor horário para contato."
+                  placeholder="Conte seu objetivo (facial, corporal, capilar) e o melhor horário para contato. Cada caso é único — queremos entender o que faz sentido para você."
                   className="w-full mt-2 px-4 py-3 rounded-xl 
                   border border-gray-200 
                   bg-white 

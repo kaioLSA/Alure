@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "Bash(winget install:*)",
+      "Bash(export PATH=\"/c/Users/roger/AppData/Local/Microsoft/WinGet/Links:$PATH\")",
+      "Bash(ffmpeg -version)",
+      "Bash(cmd.exe /c \"where ffmpeg\")",
+      "Read(//c/ProgramData/chocolatey/bin/**)",
+      "Read(//c/ffmpeg/bin/**)",
+      "Read(//c/Program Files/**)",
+      "Bash(powershell.exe -Command \"Get-Command ffmpeg -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source\")",
+      "Bash(powershell.exe -Command \"winget list Gyan.FFmpeg\")",
+      "Bash(powershell.exe -Command \"Get-ChildItem -Path ''C:\\\\'' -Recurse -Filter ''ffmpeg.exe'' -ErrorAction SilentlyContinue -Depth 5 | Select-Object -First 3 -ExpandProperty FullName\")",
+      "Bash(powershell.exe -Command \"\\(Get-ItemProperty ''HKLM:\\\\SOFTWARE\\\\Microsoft\\\\Windows\\\\CurrentVersion\\\\App Paths\\\\ffmpeg.exe'' -ErrorAction SilentlyContinue\\).''\\(Default\\)''\")",
+      "Bash(powershell.exe -Command \"[Environment]::GetEnvironmentVariable\\(''PATH'',''Machine''\\).Split\\('';''\\) | Where-Object { $_ -match ''ffmpeg'' }\")",
+      "Bash(powershell.exe -Command \"Get-ChildItem ''C:\\\\Users\\\\roger\\\\AppData\\\\Local\\\\Microsoft\\\\WinGet\\\\Packages'' -Recurse -Filter ''ffmpeg.exe'' -ErrorAction SilentlyContinue | Select-Object -ExpandProperty FullName\")",
+      "Bash(FFMPEG=\"/c/Users/roger/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-8.1-full_build/bin/ffmpeg.exe\")",
+      "Bash(\"$FFMPEG\" -i \"/c/Users/roger/OneDrive/Área de Trabalho/q/public/alure.mp4\" -g 1 -keyint_min 1 -c:v libx264 -crf 18 -preset slow -an -movflags +faststart \"/c/Users/roger/OneDrive/Área de Trabalho/q/public/alure-scroll.mp4\")",
+      "Bash(FFPROBE=\"/c/Users/roger/AppData/Local/Microsoft/WinGet/Packages/Gyan.FFmpeg_Microsoft.Winget.Source_8wekyb3d8bbwe/ffmpeg-8.1-full_build/bin/ffprobe.exe\")",
+      "Bash(\"$FFPROBE\" -v error -show_entries stream=codec_name,width,height,bit_rate,r_frame_rate,pix_fmt -of default=noprint_wrappers=1 \"/c/Users/roger/OneDrive/Área de Trabalho/q/public/alure.mp4\")",
+      "Bash(\"$FFPROBE\" -v error -show_entries stream=codec_name,width,height,bit_rate,r_frame_rate,pix_fmt -of default=noprint_wrappers=1 \"/c/Users/roger/OneDrive/Área de Trabalho/q/public/alure-scroll.mp4\")",
+      "Bash(\"$FFMPEG\" -y -i \"/c/Users/roger/OneDrive/Área de Trabalho/q/public/alure.mp4\" -vf \"scale=2160:2160:flags=lanczos,unsharp=5:5:0.8:3:3:0.4\" -g 1 -keyint_min 1 -c:v libx264 -crf 14 -preset slow -an -movflags +faststart \"/c/Users/roger/OneDrive/Área de Trabalho/q/public/alure-scroll.mp4\")",
+      "Bash(gh api:*)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:api.github.com)"
+    ]
+  }
+}

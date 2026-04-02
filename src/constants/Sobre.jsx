@@ -84,7 +84,7 @@ function Bullet({ children }) {
 /* ============================= */
 function InfoChip({ title, desc }) {
   return (
-    <div className="group rounded-2xl border-2 border-black/20 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+    <div className="group rounded-2xl border-2 border-black/20 bg-white p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
       <div className="flex items-center gap-3">
         <span className="h-2 w-2 rounded-full bg-[#d4af37]" />
         <p className="text-base font-semibold text-black">{title}</p>
@@ -103,7 +103,7 @@ export default function Sobre() {
       {/* Glow dourado superior */}
       <div className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 h-[400px] w-[400px] rounded-full bg-[#d4af37]/15 blur-3xl" />
 
-      <div className="relative max-w-7xl mx-auto px-6 py-28">
+      <div className="relative max-w-7xl mx-auto px-6 py-16 md:py-20">
         {/* Header */}
         <Reveal>
           <div className="flex items-center gap-3">
@@ -114,57 +114,59 @@ export default function Sobre() {
           </div>
         </Reveal>
 
-        <div className="mt-12 grid lg:grid-cols-12 gap-16 items-start">
+        <div className="mt-8 grid lg:grid-cols-12 gap-10 items-start">
           {/* ================= LEFT SIDE ================= */}
           <div className="lg:col-span-7">
             <Reveal delay={100}>
-              <h2 className="text-4xl md:text-5xl font-light leading-tight text-black">
+              <h2 className="text-3xl md:text-4xl font-light leading-tight text-black">
                 Estética avançada há{" "}
                 <span className="relative font-medium">
-                  2 anos
+                  mais de 9 anos
                   <span className="absolute -bottom-2 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#d4af37] to-transparent" />
                 </span>
               </h2>
             </Reveal>
 
             <Reveal delay={200}>
-              <p className="mt-8 text-lg text-black/70 leading-relaxed max-w-2xl">
-                Somos uma clínica de estética avançada que une saúde, beleza e bem-estar.
-                Nossos protocolos faciais e corporais são focados em resultados naturais,
-                segurança e autoestima — com um cuidado totalmente personalizado.
+              <p className="mt-5 text-base text-black/70 leading-relaxed max-w-2xl">
+                Há mais de 9 anos transformando autoestima e qualidade de vida com
+                responsabilidade, acolhimento e resultados reais. Nossos protocolos
+                faciais e corporais são pensados individualmente — sem exageros,
+                com foco em naturalidade, segurança e confiança.
               </p>
             </Reveal>
 
             <Reveal delay={300}>
-              <div className="mt-12 grid sm:grid-cols-2 gap-6">
+              <div className="mt-8 grid sm:grid-cols-2 gap-4">
                 <InfoChip
                   title="Faciais completos"
-                  desc="Limpeza de pele, peelings, microagulhamento e revitalizações com foco em qualidade e naturalidade."
+                  desc="Limpeza de pele, peelings, microagulhamento, rejuvenescimento, lifting sem cirurgia e fios (PDO) — com protocolos seguros e personalizados."
                 />
                 <InfoChip
                   title="Injetáveis premium"
-                  desc="Toxina botulínica (Dysport®), preenchimentos (Juvederm®), skinbooster e rinomodelação."
+                  desc="Botox, preenchimentos (Belotero®, Restylane®, Juvéderm®, Perfectha®), skinbooster e harmonização facial com naturalidade."
                 />
                 <InfoChip
                   title="Colágeno & firmeza"
-                  desc="Bioestimuladores (Sculptra®, Radiesse®, Ellansé®) para flacidez, textura e sustentação ao longo do tempo."
+                  desc="Bioestimuladores (Bioplus®, Sculptra®, Radiesse®) para firmeza, flacidez e qualidade da pele de forma progressiva."
                 />
                 <InfoChip
                   title="Corporal & capilar"
-                  desc="Enzimas para gordura localizada, protocolos corporais e tratamentos capilares para força e crescimento."
+                  desc="Lipo Reduz, drenagem linfática, massagem modeladora, protocolos de emagrecimento e mesoterapia capilar para crescimento e fortalecimento."
                 />
               </div>
             </Reveal>
 
             <Reveal delay={400}>
-              <div className="mt-14 rounded-2xl border-2 border-black/20 bg-white p-8">
+              <div className="mt-8 rounded-2xl border-2 border-black/20 bg-white p-6">
                 <p className="text-xs uppercase tracking-[0.4em] text-black/50">
                   Nossa missão
                 </p>
-                <p className="mt-4 text-lg text-black/75 leading-relaxed">
-                  Entregar resultados naturais com segurança e excelência, elevando
-                  a autoestima de cada paciente por meio de planos personalizados,
-                  tecnologia e acompanhamento cuidadoso.
+                <p className="mt-3 text-base text-black/75 leading-relaxed">
+                  Cuidar de pessoas e transformar autoestima com responsabilidade.
+                  Cada atendimento é personalizado, seguro e com acompanhamento
+                  do início ao pós-procedimento — priorizando ética, transparência
+                  e resultados que fazem a diferença na vida de quem nos escolhe.
                 </p>
               </div>
             </Reveal>
@@ -186,36 +188,36 @@ export default function Sobre() {
                 {/* linha topo */}
                 <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-[#d4af37]/80 to-transparent" />
 
-                <div className="relative p-10 sm:p-12">
+                <div className="relative p-7 sm:p-8">
                   <p className="text-[11px] tracking-[0.45em] uppercase text-white/50">
                     Por que escolher a Allure
                   </p>
 
-                  <h3 className="mt-5 text-3xl font-light leading-snug">
-                    Uma estética{" "}
-                    <span className="text-[#d4af37] font-medium">sofisticada</span>, com
-                    resultados naturais e cuidado de verdade.
+                  <h3 className="mt-4 text-2xl font-light leading-snug">
+                    Mais de 9 anos de{" "}
+                    <span className="text-[#d4af37] font-medium">excelência</span>, com
+                    resultados naturais e zero intercorrências.
                   </h3>
 
-                  <div className="mt-10 space-y-5">
-                    <Bullet>Avaliação detalhada e plano personalizado</Bullet>
-                    <Bullet>Foco em harmonia facial e corporal, sem exageros</Bullet>
-                    <Bullet>Protocolos seguros e acompanhamento pós</Bullet>
-                    <Bullet>Tecnologia e técnicas atualizadas</Bullet>
+                  <div className="mt-6 space-y-3">
+                    <Bullet>Avaliação detalhada e plano 100% personalizado</Bullet>
+                    <Bullet>Foco em harmonia e naturalidade, sem exageros</Bullet>
+                    <Bullet>Acompanhamento próximo antes, durante e após cada procedimento</Bullet>
+                    <Bullet>Atendimento acolhedor, humano e com explicações claras</Bullet>
                   </div>
 
                   {/* stats */}
-                  <div className="mt-12 grid grid-cols-3 gap-3 sm:gap-4">
-                    <MiniStat number="2+" label="Anos" />
+                  <div className="mt-8 grid grid-cols-3 gap-3">
+                    <MiniStat number="9+" label="Anos" />
+                    <MiniStat number="0" label="Intercor." />
                     <MiniStat number="100%" label="Natural" />
-                    <MiniStat number="20+" label="Proced." />
                   </div>
 
-                  <div className="mt-10 h-px bg-white/10" />
+                  <div className="mt-6 h-px bg-white/10" />
 
                   <p className="mt-6 text-white/65 leading-relaxed">
-                    Aqui, cada detalhe é pensado para valorizar sua beleza com segurança,
-                    técnica e um acabamento premium.
+                    Aqui, cada detalhe é pensado para valorizar sua beleza com
+                    segurança, acolhimento e um cuidado que vai além da estética.
                   </p>
                 </div>
               </div>

@@ -102,43 +102,48 @@ export default function Faq() {
     {
       question: "Os resultados ficam naturais?",
       answer:
-        "Sim. Nosso foco é realçar sua beleza com harmonia e sofisticação, respeitando seus traços e objetivos. Cada plano é individual, sem exageros.",
+        "Sim. Nosso foco é realçar sua beleza com harmonia, respeitando seus traços e sua individualidade. Cada plano é 100% personalizado — sem exageros, sem resultados artificiais. É por isso que nossos clientes voltam e indicam.",
     },
     {
       question: "Quais procedimentos vocês fazem?",
       answer:
-        "Trabalhamos com procedimentos faciais e corporais: toxina botulínica (Dysport®), preenchimentos com ácido hialurônico (Juvederm®), bioestimuladores de colágeno (Sculptra®, Radiesse®, Ellansé®), skinbooster, microagulhamento, peelings e protocolos corporais.",
+        "Trabalhamos com procedimentos faciais e corporais: Botox, preenchimentos (Belotero®, Restylane®, Juvéderm®), bioestimuladores de colágeno (Bioplus®, Sculptra®, Radiesse®), skinbooster, harmonização facial, fios de PDO, limpeza de pele, peelings, microagulhamento, Lipo Reduz, drenagem linfática, massagem modeladora e mesoterapia capilar.",
     },
     {
       question: "Bioestimulador é indicado para flacidez?",
       answer:
-        "Sim. Bioestimuladores estimulam a produção natural de colágeno e ajudam na firmeza, textura e qualidade da pele. A indicação depende da avaliação e do seu objetivo.",
+        "Sim. Bioestimuladores como Bioplus®, Sculptra® e Radiesse® estimulam a produção natural de colágeno e ajudam na firmeza, textura e sustentação da pele. A indicação depende da avaliação e do seu objetivo — cada caso é analisado individualmente.",
     },
     {
       question: "Como funciona a avaliação?",
       answer:
-        "A avaliação é personalizada: entendemos suas queixas, histórico e objetivo, e montamos um plano seguro com etapas claras (procedimento + cuidados + acompanhamento).",
+        "A avaliação é personalizada e acolhedora: entendemos suas queixas, histórico e objetivos, e montamos um plano seguro com etapas claras — procedimento, cuidados e acompanhamento próximo antes, durante e após cada sessão.",
     },
     {
-      question: "A clínica existe há quanto tempo?",
+      question: "Há quanto tempo a profissional atua na área?",
       answer:
-        "Estamos há 2 anos oferecendo estética avançada com foco em segurança, resultados naturais e um atendimento cuidadoso do início ao pós-procedimento.",
+        "São mais de 9 anos de experiência na estética, com trajetória focada em segurança, responsabilidade e excelência nos resultados — sem registro de intercorrências. Cada procedimento é feito com técnica sólida e compromisso com o cuidado.",
+    },
+    {
+      question: "A clínica é focada em preço ou qualidade?",
+      answer:
+        "Nosso posicionamento é de qualidade, segurança e cuidado — não trabalhamos com foco em volume ou preço. Cada paciente recebe atendimento personalizado, humanizado e com foco em resultados reais e duradouros.",
     },
   ];
 
   return (
-    <section id="faq" className="relative py-28 bg-[#f9f7f2] overflow-hidden">
+    <section id="faq" className="relative py-16 md:py-20 bg-[#f9f7f2] overflow-hidden">
       {/* Glow dourado de fundo */}
       <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-[#d4af37]/10 blur-[140px] rounded-full" />
 
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         <Reveal>
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <span className="text-[#b8962e] tracking-widest uppercase text-sm">
               Dúvidas Frequentes
             </span>
 
-            <h2 className="text-4xl md:text-5xl font-light text-black mt-4">
+            <h2 className="text-3xl md:text-4xl font-light text-black mt-3">
               Perguntas sobre nossos procedimentos
             </h2>
 

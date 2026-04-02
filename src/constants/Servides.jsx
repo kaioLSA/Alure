@@ -33,38 +33,38 @@ export default function Services() {
     {
       icon: <ShieldCheck size={28} />,
       title: "Injetáveis Premium",
-      desc: "Toxina botulínica (Dysport®) e preenchimentos com ácido hialurônico (Juvederm®) para suavizar linhas, contornar e hidratar com naturalidade.",
+      desc: "Botox, preenchimentos com ácido hialurônico (Belotero®, Restylane®, Juvéderm®, Perfectha®), skinbooster e harmonização facial — sempre com foco em naturalidade e segurança.",
     },
     {
       icon: <Sparkles size={28} />,
       title: "Bioestimuladores de Colágeno",
-      desc: "Sculptra®, Radiesse® e Ellansé® para estimular colágeno, melhorar firmeza, flacidez e qualidade da pele de forma progressiva.",
+      desc: "Bioplus®, Sculptra® e Radiesse® para estimular colágeno, melhorar firmeza, tratar flacidez e devolver qualidade à pele de forma progressiva e natural.",
     },
     {
       icon: <Smile size={28} />,
       title: "Procedimentos Faciais",
-      desc: "Limpeza de pele, microagulhamento, peelings e revitalizações para textura, viço e uniformidade — com protocolos seguros e personalizados.",
+      desc: "Limpeza de pele, peelings, microagulhamento, rejuvenescimento, lifting sem cirurgia e fios (PDO) — protocolos seguros e personalizados para cada paciente.",
     },
     {
       icon: <Gem size={28} />,
       title: "Corporal & Capilar",
-      desc: "Enzimas para redução de gordura localizada e protocolos corporais, além de tratamentos capilares para fortalecimento, crescimento e redução da queda.",
+      desc: "Lipo Reduz, drenagem linfática, massagem modeladora, protocolos de emagrecimento e mesoterapia capilar para fortalecimento e crescimento dos fios.",
     },
   ];
 
   return (
-    <section id="servicos" className="relative bg-white py-28 overflow-hidden">
+    <section id="servicos" className="relative bg-white py-16 md:py-20 overflow-hidden">
       {/* detalhe dourado topo */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[2px] h-24 bg-gradient-to-b from-[#D4AF37] to-transparent" />
 
       <div className="max-w-7xl mx-auto px-6">
         {/* Heading */}
         <Reveal>
-          <div className="text-center mb-20">
-            <p className="text-[#D4AF37] tracking-[0.3em] text-sm mb-4">
+          <div className="text-center mb-12">
+            <p className="text-[#D4AF37] tracking-[0.3em] text-sm mb-3">
               NOSSOS PROCEDIMENTOS
             </p>
-            <h2 className="text-5xl font-light text-black mb-6">
+            <h2 className="text-3xl md:text-4xl font-light text-black mb-4">
               Resultados naturais, com segurança
             </h2>
             <div className="w-24 h-[2px] bg-[#D4AF37] mx-auto" />
@@ -72,10 +72,10 @@ export default function Services() {
         </Reveal>
 
         {/* Grid */}
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 gap-6">
           {services.map((service, index) => (
             <Reveal key={index} delay={index * 150}>
-              <div className="group relative p-10 border-2 border-neutral-300 rounded-2xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-3">
+              <div className="group relative p-6 md:p-7 border-2 border-neutral-300 rounded-2xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
                 {/* Glow dourado animado */}
                 <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-r from-[#D4AF37]/10 via-transparent to-[#D4AF37]/10 blur-2xl" />
 

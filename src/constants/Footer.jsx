@@ -62,7 +62,7 @@ export default function Footer() {
   return (
     <footer
       ref={ref}
-      className="relative w-full overflow-hidden text-white pt-20 pb-10"
+      className="relative w-full overflow-hidden text-white pt-14 pb-8"
       style={{
         background:
           "radial-gradient(circle at 20% 30%, rgba(212,175,55,0.08), transparent 40%), #050b14",
@@ -108,8 +108,9 @@ export default function Footer() {
         <div>
           <img src="/logo.svg" alt="Allure Estética Avançada" className="w-40 mb-6" />
           <p className="text-gray-400 leading-relaxed text-sm">
-            Estética avançada que une saúde, beleza e bem-estar. Protocolos faciais e
-            corporais com foco em resultados naturais, segurança e autoestima.
+            Há mais de 9 anos transformando autoestima com responsabilidade.
+            Atendimento acolhedor, resultados naturais e acompanhamento do início
+            ao pós-procedimento — cuidado que vai além da estética.
           </p>
         </div>
 

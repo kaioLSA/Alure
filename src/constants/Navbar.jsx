@@ -4,6 +4,7 @@ import { Menu, X, ArrowRight } from "lucide-react";
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [pastHero, setPastHero] = useState(false);
   const rafRef = useRef(null);
 
   const navLinks = useMemo(
@@ -18,7 +19,14 @@ export default function Navbar() {
   );
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 24);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 24);
+      const hero = document.getElementById("home");
+      if (hero) {
+        const heroBottom = hero.offsetTop + hero.offsetHeight;
+        setPastHero(window.scrollY + 100 >= heroBottom);
+      }
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -29,33 +37,26 @@ export default function Navbar() {
     return () => (document.body.style.overflow = "");
   }, [open]);
 
-  // 🔥 Scroll suave premium
   const smoothScrollTo = (targetY, duration = 700) => {
     if (rafRef.current) cancelAnimationFrame(rafRef.current);
-
     const startY = window.pageYOffset;
     const diff = targetY - startY;
     const start = performance.now();
-
     const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
 
     const step = (now) => {
       const t = Math.min(1, (now - start) / duration);
-      const eased = easeOutCubic(t);
-      window.scrollTo(0, startY + diff * eased);
+      window.scrollTo(0, startY + diff * easeOutCubic(t));
       if (t < 1) rafRef.current = requestAnimationFrame(step);
     };
-
     rafRef.current = requestAnimationFrame(step);
   };
 
   const scrollToId = (id) => {
     const el = document.getElementById(id);
     if (!el) return;
-
     const NAV_OFFSET = 96;
     const top = el.getBoundingClientRect().top + window.pageYOffset - NAV_OFFSET;
-
     setOpen(false);
     setTimeout(() => smoothScrollTo(top, 760), 60);
   };
@@ -64,7 +65,6 @@ export default function Navbar() {
 
   return (
     <>
-      {/* 🔥 Underline do centro */}
       <style>{`
         .center-underline {
           position: relative;
@@ -79,9 +79,9 @@ export default function Navbar() {
           width: 100%;
           background: linear-gradient(
             90deg,
-            rgba(212,175,55,0) 0%,
-            rgba(212,175,55,0.95) 50%,
-            rgba(212,175,55,0) 100%
+            rgba(180,130,40,0) 0%,
+            rgba(180,130,40,0.85) 50%,
+            rgba(180,130,40,0) 100%
           );
           transform: translateX(-50%) scaleX(0);
           transform-origin: center;
@@ -95,7 +95,7 @@ export default function Navbar() {
       {/* Overlay mobile */}
       <div
         onClick={() => setOpen(false)}
-        className={`fixed inset-0 z-[80] bg-black/70 backdrop-blur-[2px] transition-all duration-300 ${
+        className={`fixed inset-0 z-[80] bg-black/40 backdrop-blur-[2px] transition-all duration-300 ${
           open ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
       />
@@ -103,15 +103,16 @@ export default function Navbar() {
       <header className="fixed top-0 left-0 w-full z-[90]">
         <nav
           className={`transition-all duration-500 ${
-            scrolled
-              ? "bg-black/65 backdrop-blur-2xl border-b border-yellow-500/15"
-              : "bg-transparent border-b border-transparent"
+            pastHero
+              ? "bg-zinc-950/95 backdrop-blur-2xl border-b border-zinc-800/60 shadow-lg"
+              : scrolled
+                ? "bg-white/90 backdrop-blur-2xl border-b border-gray-200/60 shadow-sm"
+                : "bg-white/70 backdrop-blur-xl border-b border-transparent"
           }`}
         >
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
-            {/* ✅ MOBILE = 2 COLUNAS | DESKTOP = 3 COLUNAS */}
             <div className="grid h-[76px] sm:h-[88px] items-center grid-cols-[1fr_auto] lg:grid-cols-[1fr_auto_1fr]">
-              {/* ✅ LOGO (só o svg, sem caixa e sem texto) */}
+              {/* LOGO */}
               <div className="justify-self-start">
                 <button
                   onClick={() => scrollToId("home")}
@@ -121,7 +122,7 @@ export default function Navbar() {
                   <img
                     src="/logo.svg"
                     alt="Logo"
-                    className="h-8 sm:h-9 w-auto object-contain"
+                    className={`h-8 sm:h-9 w-auto object-contain transition-all duration-500 ${pastHero ? "brightness-0 invert" : ""}`}
                     draggable={false}
                   />
                 </button>
@@ -133,7 +134,9 @@ export default function Navbar() {
                   <button
                     key={l.id}
                     onClick={() => scrollToId(l.id)}
-                    className="center-underline text-white/85 hover:text-white transition text-[12px] tracking-[0.28em] uppercase"
+                    className={`center-underline transition text-[12px] tracking-[0.28em] uppercase ${
+                      pastHero ? "text-zinc-400 hover:text-white" : "text-gray-600 hover:text-gray-900"
+                    }`}
                   >
                     {l.label}
                   </button>
@@ -145,11 +148,12 @@ export default function Navbar() {
                 <button
                   onClick={goCTA}
                   className="inline-flex items-center gap-3 rounded-2xl px-6 py-3
-                             bg-yellow-500/10 border border-yellow-500/30
-                             text-yellow-200 hover:text-yellow-100
-                             transition-all duration-300 hover:translate-y-[-1px]"
+                             bg-amber-500 hover:bg-amber-600
+                             text-white
+                             transition-all duration-300 hover:translate-y-[-1px]
+                             shadow-md shadow-amber-500/20"
                 >
-                  <span className="text-[11px] tracking-[0.28em] uppercase">
+                  <span className="text-[11px] tracking-[0.28em] uppercase font-semibold">
                     Agendar
                   </span>
                   <ArrowRight className="w-4 h-4" />
@@ -159,7 +163,11 @@ export default function Navbar() {
               {/* Botão Mobile */}
               <div className="lg:hidden justify-self-end">
                 <button
-                  className="inline-flex items-center justify-center w-11 h-11 rounded-2xl border border-yellow-500/20 bg-black/40 text-white"
+                  className={`inline-flex items-center justify-center w-11 h-11 rounded-2xl border transition-all duration-500 ${
+                    pastHero
+                      ? "border-zinc-700 bg-zinc-800/60 text-zinc-300"
+                      : "border-gray-200 bg-white/60 text-gray-700"
+                  }`}
                   onClick={() => setOpen((s) => !s)}
                   aria-label={open ? "Fechar menu" : "Abrir menu"}
                 >
@@ -176,14 +184,14 @@ export default function Navbar() {
             }`}
           >
             <div className="mx-auto max-w-7xl px-4 sm:px-6 pb-6">
-              <div className="rounded-3xl border border-yellow-500/15 bg-black/75 backdrop-blur-2xl p-5">
-                <div className="flex flex-col gap-3">
+              <div className="rounded-3xl border border-gray-200 bg-white/95 backdrop-blur-2xl p-5 shadow-lg">
+                <div className="flex flex-col gap-1">
                   {navLinks.map((l) => (
                     <button
                       key={l.id}
                       onClick={() => scrollToId(l.id)}
                       className="text-left rounded-2xl px-4 py-3
-                                 text-white/90 hover:text-white transition-all duration-300"
+                                 text-gray-700 hover:text-gray-900 hover:bg-gray-50 transition-all duration-300"
                     >
                       <div className="text-[13px] tracking-[0.22em] uppercase">
                         {l.label}
@@ -195,11 +203,11 @@ export default function Navbar() {
                 <button
                   onClick={goCTA}
                   className="mt-4 w-full inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-4
-                             bg-yellow-500/10 border border-yellow-500/25
-                             text-yellow-200 hover:text-yellow-100
-                             transition-all duration-300"
+                             bg-amber-500 hover:bg-amber-600
+                             text-white
+                             transition-all duration-300 shadow-md shadow-amber-500/20"
                 >
-                  <span className="text-[12px] tracking-[0.22em] uppercase">
+                  <span className="text-[12px] tracking-[0.22em] uppercase font-semibold">
                     Agendar Consulta
                   </span>
                   <ArrowRight className="w-4 h-4" />
@@ -211,9 +219,7 @@ export default function Navbar() {
       </header>
 
       {/* Spacer */}
-      <div className="relative h-[76px] sm:h-[88px] bg-[#05080f] overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(1200px_600px_at_20%_10%,rgba(212,175,55,0.14),transparent_60%),radial-gradient(900px_520px_at_80%_0%,rgba(255,255,255,0.06),transparent_55%)]" />
-      </div>
+      <div className="relative h-[76px] sm:h-[88px] bg-zinc-50 overflow-hidden" />
     </>
   );
 }
