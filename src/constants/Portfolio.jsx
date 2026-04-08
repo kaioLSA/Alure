@@ -342,10 +342,20 @@ export default function PortfolioCarousel() {
                     <img
                       src={item.img}
                       alt={`Caso ${index + 1}`}
-                      className="h-full w-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.06]"
+                      className="h-full w-full object-cover scale-[1.03] transition-transform duration-[800ms] ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.08]"
                       loading="lazy"
                       draggable={false}
                     />
+
+                    {/* Alure logo watermark */}
+                    <div className="pointer-events-none absolute inset-x-0 bottom-[80px] flex justify-center z-10">
+                      <img
+                        src={`${BASE}logo.svg`}
+                        alt=""
+                        className="w-28 opacity-80 drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]"
+                        draggable={false}
+                      />
+                    </div>
 
                     {/* Gradient */}
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/20 to-transparent" />
