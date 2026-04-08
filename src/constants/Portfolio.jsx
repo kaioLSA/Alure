@@ -199,11 +199,17 @@ export default function PortfolioCarousel() {
   };
 
   /* ── Modal ── */
-  const pauseVideo = () => { if (videoRef.current) { videoRef.current.pause(); videoRef.current.currentTime = 0; } };
+  const stopVideo = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.removeAttribute("src");
+      videoRef.current.load();
+    }
+  };
   const openModal = (idx) => { setActiveIndex(idx); setOpen(true); pauseAutoPlay(); };
-  const closeModal = () => { pauseVideo(); setOpen(false); resumeAutoPlay(); };
-  const prevModal = () => { pauseVideo(); setActiveIndex((i) => (i - 1 + items.length) % items.length); };
-  const nextModal = () => { pauseVideo(); setActiveIndex((i) => (i + 1) % items.length); };
+  const closeModal = () => { stopVideo(); setOpen(false); resumeAutoPlay(); };
+  const prevModal = () => { stopVideo(); setActiveIndex((i) => (i - 1 + items.length) % items.length); };
+  const nextModal = () => { stopVideo(); setActiveIndex((i) => (i + 1) % items.length); };
 
   useEffect(() => {
     if (!open) return;
