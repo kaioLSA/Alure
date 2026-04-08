@@ -531,15 +531,17 @@ export default function PortfolioCarousel() {
               {/* Video */}
               <div className="flex items-center justify-center bg-zinc-900 p-3 md:p-0">
                 <div className="w-full aspect-[9/16] max-h-[50svh] md:max-h-none rounded-xl md:rounded-none overflow-hidden border border-white/[0.06] md:border-0">
-                  <video
-                    ref={videoRef}
-                    key={open ? `open-${activeIndex}` : "closed"}
-                    src={active?.video}
-                    controls
-                    autoPlay
-                    playsInline
-                    className="h-full w-full object-cover"
-                  />
+                  {open && (
+                    <video
+                      ref={videoRef}
+                      key={activeIndex}
+                      src={active?.video}
+                      controls
+                      autoPlay
+                      playsInline
+                      className="h-full w-full object-cover"
+                    />
+                  )}
                 </div>
               </div>
 
