@@ -24,9 +24,8 @@ function Reveal({ children, delay = 0, className = "" }) {
     <div
       ref={ref}
       style={{ transitionDelay: `${delay}ms` }}
-      className={`transition-all duration-[700ms] ease-[cubic-bezier(.16,1,.3,1)] will-change-transform ${
-        show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-      } ${className}`}
+      className={`transition-all duration-[700ms] ease-[cubic-bezier(.16,1,.3,1)] will-change-transform ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+        } ${className}`}
     >
       {children}
     </div>
@@ -348,7 +347,7 @@ export default function PortfolioCarousel() {
                     <img
                       src={item.img}
                       alt={`Caso ${index + 1}`}
-                      className="h-full w-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.04]"
+                      className="h-full w-full object-cover scale-[1.03] transition-transform duration-[800ms] ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.08]"
                       loading="lazy"
                       draggable={false}
                     />
@@ -451,11 +450,10 @@ export default function PortfolioCarousel() {
               aria-label={`Ir para slide ${i + 1}`}
             >
               <span
-                className={`block rounded-full transition-all duration-500 ${
-                  i === currentSlide
+                className={`block rounded-full transition-all duration-500 ${i === currentSlide
                     ? "w-7 h-[3px] bg-[#d4af37]"
                     : "w-[3px] h-[3px] bg-white/20 group-hover:bg-white/40"
-                }`}
+                  }`}
               />
             </button>
           ))}
