@@ -199,11 +199,17 @@ export default function PortfolioCarousel() {
   };
 
   /* ── Modal ── */
-  const pauseVideo = () => { if (videoRef.current) { videoRef.current.pause(); videoRef.current.currentTime = 0; } };
+  const stopVideo = () => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.removeAttribute("src");
+      videoRef.current.load();
+    }
+  };
   const openModal = (idx) => { setActiveIndex(idx); setOpen(true); pauseAutoPlay(); };
-  const closeModal = () => { pauseVideo(); setOpen(false); resumeAutoPlay(); };
-  const prevModal = () => { pauseVideo(); setActiveIndex((i) => (i - 1 + items.length) % items.length); };
-  const nextModal = () => { pauseVideo(); setActiveIndex((i) => (i + 1) % items.length); };
+  const closeModal = () => { stopVideo(); setOpen(false); resumeAutoPlay(); };
+  const prevModal = () => { stopVideo(); setActiveIndex((i) => (i - 1 + items.length) % items.length); };
+  const nextModal = () => { stopVideo(); setActiveIndex((i) => (i + 1) % items.length); };
 
   useEffect(() => {
     if (!open) return;
@@ -338,14 +344,24 @@ export default function PortfolioCarousel() {
                   onClick={() => !isDragging && openModal(index)}
                   className="group relative block w-full text-left overflow-hidden rounded-2xl transition-all duration-500 hover:-translate-y-1"
                 >
-                  <div className="relative aspect-[4/5] md:aspect-[3/4] overflow-hidden bg-zinc-900">
+                  <div className="relative aspect-square overflow-hidden bg-zinc-900 rounded-2xl">
                     <img
                       src={item.img}
                       alt={`Caso ${index + 1}`}
-                      className="h-full w-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.06]"
+                      className="h-full w-full object-cover transition-transform duration-[800ms] ease-[cubic-bezier(.16,1,.3,1)] group-hover:scale-[1.04]"
                       loading="lazy"
                       draggable={false}
                     />
+
+                    {/* Alure logo watermark */}
+                    <div className="pointer-events-none absolute inset-x-0 bottom-[80px] flex justify-center z-10">
+                      <img
+                        src={`${BASE}logo.svg`}
+                        alt=""
+                        className="w-28 opacity-80 drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]"
+                        draggable={false}
+                      />
+                    </div>
 
                     {/* Gradient */}
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/20 to-transparent" />
@@ -515,15 +531,17 @@ export default function PortfolioCarousel() {
               {/* Video */}
               <div className="flex items-center justify-center bg-zinc-900 p-3 md:p-0">
                 <div className="w-full aspect-[9/16] max-h-[50svh] md:max-h-none rounded-xl md:rounded-none overflow-hidden border border-white/[0.06] md:border-0">
-                  <video
-                    ref={videoRef}
-                    key={open ? `open-${activeIndex}` : "closed"}
-                    src={active?.video}
-                    controls
-                    autoPlay
-                    playsInline
-                    className="h-full w-full object-cover"
-                  />
+                  {open && (
+                    <video
+                      ref={videoRef}
+                      key={activeIndex}
+                      src={active?.video}
+                      controls
+                      autoPlay
+                      playsInline
+                      className="h-full w-full object-cover"
+                    />
+                  )}
                 </div>
               </div>
 

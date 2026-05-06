@@ -23,10 +23,10 @@ export default function Contato() {
       {/* Glow dourado suave */}
       <div className="absolute -top-40 -left-40 w-[400px] h-[400px] bg-yellow-500/10 blur-[120px] rounded-full pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
+      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-stretch">
         {/* LADO ESQUERDO */}
         <div
-          className={`transition-all duration-1000 ease-out ${
+          className={`flex flex-col justify-center transition-all duration-1000 ease-out ${
             visible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
           }`}
         >
@@ -68,81 +68,104 @@ export default function Contato() {
             visible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"
           }`}
         >
-          <div className="bg-white shadow-2xl rounded-3xl p-10 border border-gray-100">
-            <form className="space-y-6">
+          <div className="bg-white shadow-[0_8px_40px_rgba(0,0,0,0.08)] rounded-3xl p-8 sm:p-10 border border-gray-100/80 relative overflow-hidden">
+            {/* Accent line */}
+            <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-yellow-500 via-yellow-600 to-yellow-500" />
+
+            <h3 className="text-lg font-semibold text-gray-900 mb-1">Solicite sua avaliacao</h3>
+            <p className="text-sm text-gray-400 mb-7">Preencha abaixo e entraremos em contato</p>
+
+            <form className="space-y-5">
               {/* Nome */}
-              <div>
-                <label className="text-sm text-gray-600">Nome</label>
-                <input
-                  type="text"
-                  placeholder="Seu nome completo"
-                  className="w-full mt-2 px-4 py-3 rounded-xl 
-                  border border-gray-200 
-                  bg-white 
-                  text-black 
-                  placeholder-gray-400
-                  focus:border-yellow-600 
-                  focus:ring-2 
-                  focus:ring-yellow-200 
-                  outline-none transition-all"
-                />
+              <div className="relative">
+                <label className="text-[11px] uppercase tracking-[0.15em] text-gray-400 font-medium">Nome</label>
+                <div className="relative mt-1.5">
+                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-300">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0112 0v1"/></svg>
+                  </span>
+                  <input
+                    type="text"
+                    placeholder="Seu nome completo"
+                    className="w-full pl-11 pr-4 py-3.5 rounded-xl
+                    border border-gray-200 bg-gray-50/50
+                    text-sm text-black placeholder-gray-350
+                    focus:border-yellow-500 focus:ring-2 focus:ring-yellow-100 focus:bg-white
+                    outline-none transition-all duration-300"
+                  />
+                </div>
               </div>
 
               {/* Telefone */}
-              <div>
-                <label className="text-sm text-gray-600">Telefone</label>
-                <input
-                  type="text"
-                  placeholder="(11) 99999-9999"
-                  className="w-full mt-2 px-4 py-3 rounded-xl 
-                  border border-gray-200 
-                  bg-white 
-                  text-black 
-                  placeholder-gray-400
-                  focus:border-yellow-600 
-                  focus:ring-2 
-                  focus:ring-yellow-200 
-                  outline-none transition-all"
-                />
+              <div className="relative">
+                <label className="text-[11px] uppercase tracking-[0.15em] text-gray-400 font-medium">Telefone</label>
+                <div className="relative mt-1.5">
+                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-300">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                  </span>
+                  <input
+                    type="text"
+                    placeholder="(11) 99999-9999"
+                    className="w-full pl-11 pr-4 py-3.5 rounded-xl
+                    border border-gray-200 bg-gray-50/50
+                    text-sm text-black placeholder-gray-350
+                    focus:border-yellow-500 focus:ring-2 focus:ring-yellow-100 focus:bg-white
+                    outline-none transition-all duration-300"
+                  />
+                </div>
               </div>
 
-              {/* Mensagem */}
-              <div>
-                <label className="text-sm text-gray-600">Mensagem</label>
-                <textarea
-                  rows="4"
-                  placeholder="Conte seu objetivo (facial, corporal, capilar) e o melhor horário para contato. Cada caso é único — queremos entender o que faz sentido para você."
-                  className="w-full mt-2 px-4 py-3 rounded-xl 
-                  border border-gray-200 
-                  bg-white 
-                  text-black 
-                  placeholder-gray-400
-                  focus:border-yellow-600 
-                  focus:ring-2 
-                  focus:ring-yellow-200 
-                  outline-none transition-all resize-none"
-                ></textarea>
+              {/* Servico */}
+              <div className="relative">
+                <label className="text-[11px] uppercase tracking-[0.15em] text-gray-400 font-medium">Servico de interesse</label>
+                <div className="relative mt-1.5">
+                  <span className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-300 pointer-events-none">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4"/></svg>
+                  </span>
+                  <select
+                    defaultValue=""
+                    className="w-full pl-11 pr-10 py-3.5 rounded-xl
+                    border border-gray-200 bg-gray-50/50
+                    text-sm text-black
+                    focus:border-yellow-500 focus:ring-2 focus:ring-yellow-100 focus:bg-white
+                    outline-none transition-all duration-300
+                    appearance-none cursor-pointer"
+                  >
+                    <option value="" disabled className="text-gray-400">Selecione um servico</option>
+                    <option value="harmonizacao-facial">Harmonizacao Facial</option>
+                    <option value="bioestimuladores">Bioestimuladores</option>
+                    <option value="botox">Botox</option>
+                    <option value="fios-pdo">Fios PDO</option>
+                    <option value="gluteo">Gluteo</option>
+                    <option value="lipo-redux">Lipo Redux</option>
+                    <option value="microagulhamento">Microagulhamento</option>
+                    <option value="outro">Outro</option>
+                  </select>
+                  <span className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-300 pointer-events-none">
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M4 6l4 4 4-4"/></svg>
+                  </span>
+                </div>
               </div>
 
-              {/* Botão */}
+              {/* Botao */}
               <button
                 type="submit"
                 className="
-                  w-full py-4 rounded-xl font-semibold tracking-wide
+                  w-full py-4 rounded-xl font-semibold tracking-wide text-sm
                   bg-gradient-to-r from-yellow-500 to-yellow-600
                   text-black
+                  shadow-[0_4px_20px_rgba(234,179,8,0.25)]
                   transition-all duration-500
                   hover:scale-[1.02]
-                  hover:shadow-[0_10px_30px_rgba(234,179,8,0.4)]
+                  hover:shadow-[0_8px_30px_rgba(234,179,8,0.4)]
                   active:scale-[0.98]
                 "
               >
-                Solicitar Avaliação
+                Solicitar Avaliacao
               </button>
 
-              <p className="text-xs text-gray-500 leading-relaxed">
-                Ao enviar, você autoriza nosso contato para confirmar seu atendimento e
-                orientar os próximos passos.
+              <p className="text-[11px] text-gray-400 leading-relaxed text-center">
+                Ao enviar, voce autoriza nosso contato para confirmar seu atendimento e
+                orientar os proximos passos.
               </p>
             </form>
           </div>
